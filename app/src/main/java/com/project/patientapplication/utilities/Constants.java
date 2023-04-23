@@ -29,7 +29,11 @@ public class Constants {
     public static final String KEY_BLOOD_GROUP = "bloodGroup";
     public static final String KEY_CONTACT_NUMBER = "contactNumber";
     public static final String KEY_AADHAR_NUMBER = "aadharAnumber";
-    public static final String KEY_DATE_TIME = "aadharAnumber";
+    public static final String KEY_DATE = "date";
     public static final String KEY_STATUS = "status";
-
+    public static final String KEY_TIME = "time";
+    public static final String KEY_DESCRIPTION = "status";
+    public static final String APPOINTMENT_BOOKED = "Appointment booked";
+    public static final String APPOINTMENT_CLOSED = "Appointment closed";
+    public static final String KEY_CURRENT_USER = "current";
 }

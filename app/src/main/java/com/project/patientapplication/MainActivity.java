@@ -2,15 +2,16 @@ package com.project.patientapplication;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-import static com.project.patientapplication.utilities.Constants.KEY_COLLECTION_DOCTORS;
-import static com.project.patientapplication.utilities.Constants.KEY_FCM_TOKEN;
-import static com.project.patientapplication.utilities.Constants.KEY_USER_ID;
+import static com.project.patientapplication.utilities.Constants.*;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Base64;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,12 +47,20 @@ public class MainActivity extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCancelable(false);
         dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+        getPatientDetails();
         setListeners();
+    }
+
+    private void getPatientDetails(){
+        binding.textName.setText(preferenceManager.getString(KEY_NAME));
+        byte[] bytes = Base64.decode(preferenceManager.getString(KEY_IMAGE),Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        Glide.with(MainActivity.this).load(bitmap).into(binding.imageProfile);
     }
 
     private void setListeners() {
         binding.appointments.setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(),AppointmentActivity.class));
+            startActivity(new Intent(getApplicationContext(),MyAppointmentsActivity.class));
         });
         binding.imageSignOut.setOnClickListener(v -> {
             MaterialCardView cancel = dialog.findViewById(R.id.cancelButton);

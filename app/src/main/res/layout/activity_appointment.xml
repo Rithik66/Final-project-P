@@ -61,8 +61,6 @@
             app:layout_constraintTop_toTopOf="@id/chatBackground"
             tools:layout_editor_absoluteX="0dp">
 
-
-
             <FrameLayout
                 android:id="@+id/datePicker"
                 android:layout_width="match_parent"
@@ -99,7 +97,7 @@
                 android:paddingEnd="@dimen/_16sdp" />
 
             <EditText
-                android:id="@+id/contactNumber"
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_45sdp"
                 android:layout_marginTop="@dimen/_16sdp"
@@ -107,7 +105,6 @@
                 android:hint="Description"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
-                android:inputType="number"
                 android:paddingStart="@dimen/_16sdp"
                 android:paddingEnd="@dimen/_16sdp"
                 android:textColor="@color/primary_text"
@@ -121,7 +118,7 @@
                 android:animateLayoutChanges="true">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonAddPatient"
+                    android:id="@+id/submitButton"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
                     android:text="Submit"
